@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='CSS/')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='IMG/logoeEner.png')}}">
+
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <div><!--Este div sera un layout que se despliguege cuando el usuario ingrese-->
+        <h1>Bienvendio <!--Acá ira el nombre del usuario-->, Esta es la pagina principal</h1>
+    </div>
+    <!--Hacer un header-->
+
+    <div>
+        <div>
+            <div><h1>Lista De Personas</h1></div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Telefono</th>
+                            <th>Eliminar</th>
+                            <th>Ver/Actualizar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in persons %}
+                        <tr>
+                            <td>{{row.0}}</td>
+                            <td>{{row.3}}</td>
+                            <td>{{row.4}}</td>
+                            <td>{{row.5}}</td>
+                            <td> <a href="/borrar/{{row.0}}" >Eliminar</a></td>
+                            <td><a href="/updat/{{row.0}}" >Ver/Actualizar</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div><h1>Formulario de registro</h1></div>
+        <div>
+            <form action="{{url_for('insert')}}" method="POST" id="formCrea">
+                <div><!--Convertir este campo en desplgable-->
+                    <label for="" name="tip_doc" >Tipo de documento</label>
+                    <input type="text" name="tip_doc" id="tip_doc">
+                </div>
+                <div>
+                    <label for="" name="numD" >Numero de documento</label>
+                    <input type="text" name="numD" id="numD">
+                </div>
+                <div>
+                    <label for="" name="nombre" >Nombre</label>
+                    <input type="text" name="nombre" id="nombre">
+                </div>
+                <div>
+                    <label for="" name="lastN" >Apellidos</label>
+                    <input type="text" name="lastN" id="lastN">
+                </div>
+                <div>
+                    <label for="" name="tel" >Numero de contacto</label>
+                    <input type="text" name="tel" id="tel">
+                </div>
+                <div>
+                    <button type="submit" >Crear registro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!--Hacer un footer-->
+
+</body>
+</html>
