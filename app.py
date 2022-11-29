@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import  Flask, render_template, request, redirect, url_for
 from conex import conexi
 
 app= Flask(__name__)
@@ -9,7 +9,6 @@ def index():
     query=conexi.cursor()
     query.execute("SELECT * FROM personas")
     data=query.fetchall()
-    conexi.close()
     return render_template('index.html', persons=data)
 
 
@@ -28,9 +27,16 @@ def insert():
         if(query):
             return redirect(url_for('index'))
 
+@app.route('/edit/<string:id>')
+def getPerson(id):
+    query=conexi.cursor()
+    query.execute('SELECT * FROM personas WHERE id_P={0}'.format(id))
+    data=query.fetchall()
+    return render_template('edit.html', person=data[0])
+
+
 @app.route('/updat', methods=['POST', 'GET'])
 def updat():
-
     if request.method=="POST":
         id_P=request.form['id_P']
         tip_doc=request.form['tip_doc']

@@ -1,0 +1,119 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+body{
+    background-color:  #9B97B2;
+}
+
+/*
+------ INICIO CSS DE LA TABLA ------
+*/
+
+.contenedor {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .215) ;
+    display: block ;
+    width: 100%;
+    height: 100vh;
+    margin: 70px 0px 70px 0px ;
+    background-color: #4120FF ;
+}
+.title-3 {
+    width: 100%;
+    float: left ;
+    padding: 1px;
+    border: 1px solid black;
+}
+.conten-2 {
+    
+    width: 100%;
+    float: left ;
+    margin: 50px 0px 50px 0px;
+    padding: 2px;
+    border: 1px solid black;
+
+}
+
+tbody{
+    background-color: #ffffff;
+}
+.content-tabla {
+    border-collapse: collapse;
+    margin: 0px auto;
+    height: 420px ;
+    font-size: 0.9em ;
+    min-width: 700px ;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+ /* background-color: red; */
+}
+.content-tabla thead tr {
+
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+.content-tabla th,
+.content-tabla td {
+    padding: 12px 15px;
+}
+.content-tabla tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.content-tabla tbody tr:nth-of-type(even){
+    background-color: #e1e0e0;
+}
+.content-tabla tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.h4 {
+    text-align: center;
+    font-size: 40px;
+}
+
+/* .content-tabla tbody tr.active-row{
+    font-weight: bold;
+    color: #009879;
+} */
+
+/*
+------ FIN CSS DE LA TABLA ------
+*/
+
+
+/*
+------ INICIO CSS FORMULARIO REGISTRO ------
+*/
+
+.container-form1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container-form1 {
+    width: 600px;
+    background-color: #e1e0e0;
+}
+
+.form-group {
+    margin-bottom:1.3em; 
+}
+
+.form-label {
+    font-size: .75em;
+    display: block;
+    opacity: 1;
+}
+
+.form-control {
+    box-shadow:none;
+    border-radius: 2px;
+    border-color: #ccc;
+    border-style: none none solid none;
+    width: 100%;
+    font-size: 1.24em;
+}

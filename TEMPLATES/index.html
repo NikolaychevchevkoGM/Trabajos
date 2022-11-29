@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{{url_for('static', filename='CSS/')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='CSS/index.css')}}">
     <link rel="shortcut icon" href="{{url_for('static', filename='IMG/logoeEner.png')}}">
 
 
@@ -13,16 +13,48 @@
 </head>
 <body>
     
-    <div><!--Este div sera un layout que se despliguege cuando el usuario ingrese-->
+    <div class="title-1"><!--Este div sera un layout que se despliguege cuando el usuario ingrese-->
         <h1>Bienvendio <!--Acá ira el nombre del usuario-->, Esta es la pagina principal</h1>
     </div>
     <!--Hacer un header-->
 
-    <div>
-        <div>
-            <div><h1>Lista De Personas</h1></div>
-            <div>
-                <table>
+
+    <div class="container">
+        <div class="titulo-2"><h1>Formulario de registro</h1></div>
+        <div class="container-form1">
+            <form action="{{url_for('insert')}}" method="POST" id="formCrea">
+                <div class="form-group"><!--Convertir este campo en desplgable-->
+                    <label for="" class="form-label" name="tip_doc" >Tipo de documento</label>
+                    <input type="text" class="form-control" name="tip_doc" id="tip_doc">
+                </div>
+                <div class="form-group">
+                    <label for=""  class="form-label" name="numD" >Numero de documento</label>
+                    <input type="text"  class="form-control" name="numD" id="numD">
+                </div>
+                <div class="form-group">
+                    <label for=""  class="form-label" name="nombre" >Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre">
+                </div>
+                <div class="form-group">
+                    <label for=""  class="form-label" name="lastN" >Apellidos</label>
+                    <input type="text" class="form-control" name="lastN" id="lastN">
+                </div>
+                <div class="form-group">
+                    <label for=""  class="form-label" name="tel" >Numero de contacto</label>
+                    <input type="text" class="form-control" name="tel" id="tel">
+                </div>
+                <div>
+                    <button type="submit" >Crear registro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+        <div class="contenedor" >
+            <div class="title-3"><h1 class="h4" >Lista De Personas</h1></div>
+            <div class="conten-2">
+                <table class="content-tabla" >
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -35,53 +67,20 @@
                     </thead>
                     <tbody>
                         {% for row in persons %}
-                        <tr>
+                        <tr class="active-row">
                             <td>{{row.0}}</td>
                             <td>{{row.3}}</td>
                             <td>{{row.4}}</td>
                             <td>{{row.5}}</td>
-                            <td> <a href="/borrar/{{row.0}}" >Eliminar</a></td>
-                            <td><a href="/updat/{{row.0}}" >Ver/Actualizar</a></td>
+                            <td><a href="/borrar/{{row.0}}" >Eliminar</a></td>
+                            <td><a href="/edit/{{row.0}}" >Ver/Actualizar</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
-                    </div>
                 </table>
             </div>
         </div>
-    </div>
-
-    <div>
-        <div><h1>Formulario de registro</h1></div>
-        <div>
-            <form action="{{url_for('insert')}}" method="POST" id="formCrea">
-                <div><!--Convertir este campo en desplgable-->
-                    <label for="" name="tip_doc" >Tipo de documento</label>
-                    <input type="text" name="tip_doc" id="tip_doc">
-                </div>
-                <div>
-                    <label for="" name="numD" >Numero de documento</label>
-                    <input type="text" name="numD" id="numD">
-                </div>
-                <div>
-                    <label for="" name="nombre" >Nombre</label>
-                    <input type="text" name="nombre" id="nombre">
-                </div>
-                <div>
-                    <label for="" name="lastN" >Apellidos</label>
-                    <input type="text" name="lastN" id="lastN">
-                </div>
-                <div>
-                    <label for="" name="tel" >Numero de contacto</label>
-                    <input type="text" name="tel" id="tel">
-                </div>
-                <div>
-                    <button type="submit" >Crear registro</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
+    
 
     <!--Hacer un footer-->
 
