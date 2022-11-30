@@ -1,4 +1,4 @@
-from flask import  Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 from conex import conexi
 
 app= Flask(__name__)
@@ -60,7 +60,6 @@ def borrar(id):
         return redirect(url_for('index'))
     
 
-    
 
 if __name__ == "__main__":
     app.run(debug=True)
